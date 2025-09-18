@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qt_HUD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="hud-container">
+        <div id="circular-hud">
+            <div id="health-indicator" class="circular-indicator">
+                <svg viewBox="0 0 100 100">
+                    <circle class="indicator-bg" cx="50" cy="50" r="40"></circle>
+                    <circle class="indicator-fill health-fill" cx="50" cy="50" r="40" id="health-fill"></circle>
+                </svg>
+                <div class="indicator-icon health-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            
+            <div id="armor-indicator" class="circular-indicator">
+                <svg viewBox="0 0 100 100">
+                    <circle class="indicator-bg" cx="50" cy="50" r="40"></circle>
+                    <circle class="indicator-fill armor-fill" cx="50" cy="50" r="40" id="armor-fill"></circle>
+                </svg>
+                <div class="indicator-icon armor-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+            </div>
+            
+            <div id="hunger-indicator" class="circular-indicator">
+                <svg viewBox="0 0 100 100">
+                    <circle class="indicator-bg" cx="50" cy="50" r="40"></circle>
+                    <circle class="indicator-fill hunger-fill" cx="50" cy="50" r="40" id="hunger-fill"></circle>
+                </svg>
+                <div class="indicator-icon hunger-icon">
+                    <i class="fas fa-hamburger"></i>
+                </div>
+            </div>
+            
+            <div id="thirst-indicator" class="circular-indicator">
+                <svg viewBox="0 0 100 100">
+                    <circle class="indicator-bg" cx="50" cy="50" r="40"></circle>
+                    <circle class="indicator-fill thirst-fill" cx="50" cy="50" r="40" id="thirst-fill"></circle>
+                </svg>
+                <div class="indicator-icon thirst-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+            </div>
+            
+            <div id="stamina-indicator" class="circular-indicator">
+                <svg viewBox="0 0 100 100">
+                    <circle class="indicator-bg" cx="50" cy="50" r="40"></circle>
+                    <circle class="indicator-fill stamina-fill" cx="50" cy="50" r="40" id="stamina-fill"></circle>
+                </svg>
+                <div class="indicator-icon stamina-icon">
+                    <i class="fas fa-running"></i>
+                </div>
+            </div>
+            
+            <div id="oxygen-indicator" class="circular-indicator">
+                <svg viewBox="0 0 100 100">
+                    <circle class="indicator-bg" cx="50" cy="50" r="40"></circle>
+                    <circle class="indicator-fill oxygen-fill" cx="50" cy="50" r="40" id="oxygen-fill"></circle>
+                </svg>
+                <div class="indicator-icon oxygen-icon">
+                    <i class="fas fa-lungs"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div id="street-info">
+            <div class="street-icon">
+                <i class="fas fa-road"></i>
+            </div>
+            <span id="street-name">Nom de la rue</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

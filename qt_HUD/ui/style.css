@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#hud-container {
+    position: absolute;
+    bottom: -15px;
+    left: 30px;
+    width: 300px;
+    height: 60px;
+    transition: opacity 0.5s ease;
+}
+
+#circular-hud {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circular-indicator {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.circular-indicator:hover {
+    transform: scale(1.1);
+}
+
+#health-indicator {
+    bottom: 15px;
+    left: 0px;
+}
+
+#armor-indicator {
+    bottom: 15px;
+    left: 45px;
+}
+
+#hunger-indicator {
+    bottom: 15px;
+    left: 90px;
+}
+
+#thirst-indicator {
+    bottom: 15px;
+    left: 135px;
+}
+
+#stamina-indicator {
+    bottom: 15px;
+    left: 180px;
+}
+
+#oxygen-indicator {
+    bottom: 15px;
+    left: 225px;
+}
+
+.indicator-bg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.5);
+    stroke-width: 8;
+}
+
+.indicator-fill {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dasharray 0.5s ease;
+}
+
+.health-fill {
+    stroke: rgb(46, 204, 113);
+}
+
+.armor-fill {
+    stroke: rgb(52, 152, 219);
+}
+
+.hunger-fill {
+    stroke: rgb(230, 126, 34);
+}
+
+.thirst-fill {
+    stroke: rgb(41, 128, 185);
+}
+
+.stamina-fill {
+    stroke: rgb(155, 89, 182);
+}
+
+.oxygen-fill {
+    stroke: rgb(26, 188, 156);
+}
+
+.indicator-text {
+    font-size: 16px;
+    fill: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.indicator-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+.indicator-icon i {
+    font-size: 12px;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.health-icon {
+    background-color: rgba(46, 204, 113, 0.2);
+    border: 1px solid rgba(46, 204, 113, 0.6);
+}
+
+.armor-icon {
+    background-color: rgba(52, 152, 219, 0.2);
+    border: 1px solid rgba(52, 152, 219, 0.6);
+}
+
+.hunger-icon {
+    background-color: rgba(230, 126, 34, 0.2);
+    border: 1px solid rgba(230, 126, 34, 0.6);
+}
+
+.thirst-icon {
+    background-color: rgba(41, 128, 185, 0.2);
+    border: 1px solid rgba(41, 128, 185, 0.6);
+}
+
+.stamina-icon {
+    background-color: rgba(155, 89, 182, 0.2);
+    border: 1px solid rgba(155, 89, 182, 0.6);
+}
+
+.oxygen-icon {
+    background-color: rgba(26, 188, 156, 0.2);
+    border: 1px solid rgba(26, 188, 156, 0.6);
+}
+
+#street-info {
+    position: fixed;
+    bottom: 20px;
+    left: 320px;
+    background-color: transparent;
+    padding: 6px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    max-width: 400px;
+    overflow: visible;
+    z-index: 10;
+}
+
+#street-info:hover {
+    transform: scale(1.05);
+}
+
+.street-icon {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+#street-name {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+.slide-in {
+    animation: slideIn 0.5s forwards;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+.critical {
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.7);
+}
+
+@media (max-width: 1280px) {
+    #hud-container {
+        transform: scale(0.9);
+        transform-origin: bottom right;
+    }
+}
+
+@media (max-width: 1024px) {
+    #hud-container {
+        transform: scale(0.8);
+        transform-origin: bottom right;
+    }
+}
+
+.mini-map-fixed {
+    z-index: 1;
+}
+
+#settings-menu {
+    z-index: 1000;
+}
